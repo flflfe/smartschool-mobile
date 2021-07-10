@@ -1,60 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-// import 'package:smartschool_mobile/models/chapters.dart';
-import 'package:smartschool_mobile/models/studentSubjects.dart';
-import 'package:smartschool_mobile/screens/screen.dart';
-import 'package:smartschool_mobile/services/auth.dart';
-import 'package:smartschool_mobile/services/services.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:smartschool_mobile/constants.dart';
+import 'package:smartschool_mobile/services/services.dart';
+import 'package:smartschool_mobile/models/chapters.dart' as chapterModel;
 
-class DashboardPage extends StatefulWidget {
-  const DashboardPage({Key? key}) : super(key: key);
+import '../constants.dart';
+
+class Chapters extends StatefulWidget {
+  Chapters({Key? key, this.id}) : super(key: key);
+  final String? id;
 
   @override
-  _DashboardPageState createState() => _DashboardPageState();
+  _ChaptersState createState() => _ChaptersState();
 }
 
-class _DashboardPageState extends State<DashboardPage> {
-  List<StudentSubjects>? studentSubjects;
+class _ChaptersState extends State<Chapters> {
+  List<chapterModel.Chapters>? chapters;
 
-  Future<List<StudentSubjects>> getStudentSubjectsList() async {
-    studentSubjects = await Services.getStudentSubjectss();
-    return studentSubjects!;
+  Future<List<chapterModel.Chapters>> getChapters(String? id) async {
+    chapters = await Services.getChapters(id);
+    return chapters!;
   }
 
   @override
   Widget build(BuildContext context) {
-    Auth _auth = Provider.of<Auth>(context, listen: false);
-    // _auth.isTeacher == true ? _isTeacher = true : _isTeacher = false;
-
-    // Services.classRoom = _auth.getClassRoom;
-    Services.token = _auth.getToken;
-    Services.name = _auth.getName;
-    Services.isTeacher = _auth.getIsTeacher;
     return Scaffold(
       // drawer: Drawer(),
       backgroundColor: Colors.transparent,
       appBar: AppBar(
-        // centerTitle: true,
-        title: Text(
-          _auth.getName ?? "",
-          style: kBodyText,
-        ),
-        actions: [
-          TextButton(
-              onPressed: () async {
-                String _returnString = await _auth.signOut();
-                print(_returnString);
-                if (_returnString == "success") {
-                  Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(builder: (context) => Root()),
-                      (route) => false);
-                }
-              },
-              child: Text('Logout'))
-        ],
         backgroundColor: Colors.transparent,
       ),
       body: Stack(children: [
@@ -68,19 +40,13 @@ class _DashboardPageState extends State<DashboardPage> {
         ),
         Center(
           child: Container(
-            // decoration: BoxDecoration(
-            //   image: DecorationImage(
-            //     image: AssetImage("assets/images/Hackathonbg.png"),
-            //     fit: BoxFit.cover,
-            //   ),
-            // ),
             child: Column(
               children: [
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.1,
                 ),
                 Text(
-                  "Subjects",
+                  "Chapters",
                   style: kHeadline,
                 ),
                 SizedBox(
@@ -88,7 +54,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 ),
                 FutureBuilder(
                   initialData: [],
-                  future: getStudentSubjectsList(),
+                  future: getChapters(widget.id),
                   builder: (context, AsyncSnapshot<List<dynamic>> snapshot) =>
                       snapshot.hasData
                           ? Expanded(
@@ -104,15 +70,12 @@ class _DashboardPageState extends State<DashboardPage> {
                                         const EdgeInsets.fromLTRB(15, 5, 15, 5),
                                     child: InkWell(
                                       onTap: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder:
-                                                    (BuildContext context) =>
-                                                        Chapters(
-                                                            id: snapshot
-                                                                .data![index]
-                                                                .id)));
+                                        // Navigator.push(
+                                        //     context,
+                                        //     MaterialPageRoute(
+                                        //         builder: (BuildContext context) =>
+                                        //             DetailsScreen(
+                                        //                 snapshot.data[index])));
                                       },
                                       child: Container(
                                         padding: EdgeInsets.all(5),
