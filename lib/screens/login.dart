@@ -15,8 +15,9 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       appBar: AppBar(
-        backgroundColor: kBackgroundColor,
+        backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
           onPressed: () {
@@ -29,91 +30,100 @@ class _SignInPageState extends State<SignInPage> {
           ),
         ),
       ),
-      body: SafeArea(
-        //to make page scrollable
-        child: CustomScrollView(
-          reverse: true,
-          slivers: [
-            SliverFillRemaining(
-              hasScrollBody: false,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Flexible(
-                      fit: FlexFit.loose,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/Hackathonbg.png"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: SafeArea(
+          //to make page scrollable
+          child: CustomScrollView(
+            reverse: true,
+            slivers: [
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Flexible(
+                        fit: FlexFit.loose,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              "Login",
+                              style: kHeadline,
+                            ),
+
+                            // Text(
+                            //   "Login",
+                            //   style: kBodyText2,
+                            // ),
+                            SizedBox(
+                              height: 60,
+                            ),
+                            MyTextField(
+                              hintText: 'Email',
+                              inputType: TextInputType.text,
+                            ),
+                            MyPasswordField(
+                              isPasswordVisible: isPasswordVisible,
+                              onTap: () {
+                                setState(() {
+                                  isPasswordVisible = !isPasswordVisible;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Welcome back.",
-                            style: kHeadline,
+                            "Dont't have an account? ",
+                            style: kBodyText,
                           ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            "You've been missed!",
-                            style: kBodyText2,
-                          ),
-                          SizedBox(
-                            height: 60,
-                          ),
-                          MyTextField(
-                            hintText: 'Phone, email or username',
-                            inputType: TextInputType.text,
-                          ),
-                          MyPasswordField(
-                            isPasswordVisible: isPasswordVisible,
+                          GestureDetector(
                             onTap: () {
-                              setState(() {
-                                isPasswordVisible = !isPasswordVisible;
-                              });
+                              Navigator.push(
+                                context,
+                                CupertinoPageRoute(
+                                  builder: (context) => RegisterPage(),
+                                ),
+                              );
                             },
-                          ),
+                            child: Text(
+                              'Register',
+                              style: kBodyText.copyWith(
+                                color: Colors.white,
+                              ),
+                            ),
+                          )
                         ],
                       ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Dont't have an account? ",
-                          style: kBodyText,
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              CupertinoPageRoute(
-                                builder: (context) => RegisterPage(),
-                              ),
-                            );
-                          },
-                          child: Text(
-                            'Register',
-                            style: kBodyText.copyWith(
-                              color: Colors.white,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    MyTextButton(
-                      buttonName: 'Sign In',
-                      onTap: () {},
-                      bgColor: Colors.white,
-                      textColor: Colors.black87,
-                    ),
-                  ],
+                      SizedBox(
+                        height: 20,
+                      ),
+                      MyTextButton(
+                        buttonName: 'Sign In',
+                        onTap: () {},
+                        bgColor: Colors.white,
+                        textColor: Colors.black87,
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

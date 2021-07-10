@@ -30,8 +30,9 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       appBar: AppBar(
-        backgroundColor: kBackgroundColor,
+        backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
           onPressed: () {
@@ -44,84 +45,92 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
         ),
       ),
-      body: SafeArea(
-        child: CustomScrollView(
-          slivers: [
-            SliverFillRemaining(
-              hasScrollBody: false,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                ),
-                child: Column(
-                  children: [
-                    Flexible(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/Hackathonbg.png"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: SafeArea(
+          child: CustomScrollView(
+            slivers: [
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                  ),
+                  child: Column(
+                    children: [
+                      Flexible(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Register",
+                              style: kHeadline,
+                            ),
+                            Text(
+                              "Create new account to get started.",
+                              style: kBodyText2,
+                            ),
+                            SizedBox(
+                              height: 50,
+                            ),
+                            MyTextField(
+                              hintText: 'Name',
+                              inputType: TextInputType.name,
+                            ),
+                            MyTextField(
+                              hintText: 'Email',
+                              inputType: TextInputType.emailAddress,
+                            ),
+                            MyTextField(
+                              hintText: 'Phone',
+                              inputType: TextInputType.phone,
+                            ),
+                            MyPasswordField(
+                              isPasswordVisible: passwordVisibility,
+                              onTap: () {
+                                setState(() {
+                                  passwordVisibility = !passwordVisibility;
+                                });
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Register",
-                            style: kHeadline,
+                            "Already have an account? ",
+                            style: kBodyText,
                           ),
                           Text(
-                            "Create new account to get started.",
-                            style: kBodyText2,
+                            "Sign In",
+                            style: kBodyText.copyWith(
+                              color: Colors.white,
+                            ),
                           ),
-                          SizedBox(
-                            height: 50,
-                          ),
-                          MyTextField(
-                            hintText: 'Name',
-                            inputType: TextInputType.name,
-                          ),
-                          MyTextField(
-                            hintText: 'Email',
-                            inputType: TextInputType.emailAddress,
-                          ),
-                          MyTextField(
-                            hintText: 'Phone',
-                            inputType: TextInputType.phone,
-                          ),
-                          MyPasswordField(
-                            isPasswordVisible: passwordVisibility,
-                            onTap: () {
-                              setState(() {
-                                passwordVisibility = !passwordVisibility;
-                              });
-                            },
-                          )
                         ],
                       ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Already have an account? ",
-                          style: kBodyText,
-                        ),
-                        Text(
-                          "Sign In",
-                          style: kBodyText.copyWith(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    MyTextButton(
-                      buttonName: 'Register',
-                      onTap: () {},
-                      bgColor: Colors.white,
-                      textColor: Colors.black87,
-                    )
-                  ],
+                      SizedBox(
+                        height: 20,
+                      ),
+                      MyTextButton(
+                        buttonName: 'Register',
+                        onTap: () {},
+                        bgColor: Colors.white,
+                        textColor: Colors.black87,
+                      )
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

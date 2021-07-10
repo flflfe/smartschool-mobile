@@ -23,21 +23,8 @@ class WelcomePage extends StatelessWidget {
                 Flexible(
                   child: Column(
                     children: [
-                      Center(
-                        child: Container(
-                          width: MediaQuery.of(context).size.width * 0.8,
-                          child: Text(
-                            "Codekavya SmartSchool",
-                            style: kHeadline,
-                            textAlign: TextAlign.center,
-                          ),
-                          // child: Image(
-                          //   image: AssetImage('assets/images/Hackathonbg.png'),
-                          // ),
-                        ),
-                      ),
                       SizedBox(
-                        height: 20,
+                        height: MediaQuery.of(context).size.height * 0.2,
                       ),
                       Text(
                         "Codekavya SmartSchool",
@@ -54,48 +41,51 @@ class WelcomePage extends StatelessWidget {
                           style: kBodyText,
                           textAlign: TextAlign.center,
                         ),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.2,
+                      ),
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        // height: 300,
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.circular(18),
+                        ),
+                        child: Column(
+                          children: [
+                            MyTextButton(
+                              bgColor: Colors.white,
+                              buttonName: 'Register',
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    CupertinoPageRoute(
+                                        builder: (context) => RegisterPage()));
+                              },
+                              textColor: Colors.black87,
+                            ),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            MyTextButton(
+                              bgColor: Colors.white,
+                              buttonName: 'Login',
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    CupertinoPageRoute(
+                                      builder: (context) => SignInPage(),
+                                    ));
+                              },
+                              textColor: Colors.black87,
+                            ),
+                          ],
+                        ),
                       )
                     ],
                   ),
                 ),
-                Container(
-                  height: 60,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[850],
-                    borderRadius: BorderRadius.circular(18),
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: MyTextButton(
-                          bgColor: Colors.white,
-                          buttonName: 'Register',
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                CupertinoPageRoute(
-                                    builder: (context) => RegisterPage()));
-                          },
-                          textColor: Colors.black87,
-                        ),
-                      ),
-                      Expanded(
-                        child: MyTextButton(
-                          bgColor: Colors.transparent,
-                          buttonName: 'Sign In',
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                CupertinoPageRoute(
-                                  builder: (context) => SignInPage(),
-                                ));
-                          },
-                          textColor: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                )
               ],
             ),
           ),
