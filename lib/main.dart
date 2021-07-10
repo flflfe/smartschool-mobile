@@ -22,7 +22,7 @@ class _SmartschoolState extends State<Smartschool> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        // ChangeNotifierProvider(create: (context) => Auth()),
+        ChangeNotifierProvider(create: (context) => Auth()),
         ChangeNotifierProvider(create: (context) => Services()),
       ],
       child: MaterialApp(

@@ -1,23 +1,23 @@
-// import 'package:smartschool_mobile/constants.dart';
-// import 'package:flutter/cupertino.dart';
-// import 'package:shared_preferences/shared_preferences.dart';
-// import 'package:http/http.dart' as http;
-// import 'dart:convert';
+import 'package:smartschool_mobile/constants.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
-// class Auth extends ChangeNotifier {
-//   String? _name;
-//   String ?_email;
-//  String? _token;
-//   bool? _isTeacher;
-// //getters
-//   String? get getName => _name;
-//   String? get getEmail => _name;
-//   String? get getToken => _token;
-//   bool? get getIsTeacher => _isTeacher;
-// //setters
-//   set isTeacher(bool b) {
-//     this._isTeacher = b;
-//   }
+class Auth extends ChangeNotifier {
+  String? _name;
+  String? _email;
+  String? _token;
+  bool? _isTeacher;
+//getters
+  String? get getName => _name;
+  String? get getEmail => _name;
+  String? get getToken => _token;
+  bool? get getIsTeacher => _isTeacher;
+//setters
+  set isTeacher(bool b) {
+    this._isTeacher = b;
+  }
 
 //   Future<String> onStartUp() async {
 //     String retVal = "error";
@@ -55,57 +55,57 @@
 //     return (retVal);
 //   }
 
-//   Future<String> signIn(String email, String pass) async {
-//     String retValue = "error";
+  Future<String> signIn(String email, String pass) async {
+    String retValue = "error";
 
-//     try {
-//       var client = http.Client();
+    try {
+      var client = http.Client();
 
-//       var uri = Uri.parse(signinUrl);
+      var uri = Uri.parse(signinUrl);
 
-//       Map body = {"Email": email, "Password": pass};
-//       var jsonResponse;
-//       var res = await client.post(uri, body: body);
-//       print(res.body);
-//       jsonResponse = json.decode(res.body);
+      Map body = {"Email": email, "Password": pass};
+      var jsonResponse;
+      var res = await client.post(uri, body: body);
+      print(res.body);
+      jsonResponse = json.decode(res.body);
 
-//       //Check API status
+      //Check API status
 
-//       if (res.statusCode == 200) {
-//         jsonResponse = json.decode(res.body);
+      if (res.statusCode == 200) {
+        jsonResponse = json.decode(res.body);
 
-//         print("Response status: ${res.statusCode}");
+        print("Response status: ${res.statusCode}");
 
-//         print("Response status: ${res.body}");
+        print("Response status: ${res.body}");
 
-//         SharedPreferences sharedPreferences =
-//             await SharedPreferences.getInstance();
-//         // if (jsonResponse != null) {
+        SharedPreferences sharedPreferences =
+            await SharedPreferences.getInstance();
+        // if (jsonResponse != null) {
 
-//         _token = jsonResponse['token'];
-//         _userName = jsonResponse['user']['Name'];
-//         _email = jsonResponse['user']['Email'];
-//         bool _isTeacherFromJson =
-//             jsonResponse['user']['role'] == 'teacher' ? true : false;
-//         if (_isTeacherFromJson != _isTeacher) {
-//           return _isTeacherFromJson
-//               ? 'Login with Student Account or go to Teacher Login!'
-//               : 'Login with Teacher Account or go to Student Login!';
-//         }
-//         sharedPreferences.setString("token", _token);
-//         sharedPreferences.setString("user", _name);
-//         sharedPreferences.setString('role', jsonResponse['user']['role']);
-//         return "success";
-//       }
+        _token = jsonResponse['token'];
+        _name = jsonResponse['user']['Name'];
+        _email = jsonResponse['user']['Email'];
+        // bool _isTeacherFromJson =
+        //     jsonResponse['user']['role'] == 'teacher' ? true : false;
+        // if (_isTeacherFromJson != _isTeacher) {
+        //   return _isTeacherFromJson
+        //       ? 'Login with Student Account or go to Teacher Login!'
+        //       : 'Login with Teacher Account or go to Student Login!';
+        // }
+        sharedPreferences.setString("token", _token!);
+        sharedPreferences.setString("user", _name!);
+        sharedPreferences.setString('role', jsonResponse['user']['role']);
+        return "success";
+      }
 
-//       retValue = jsonResponse['Error'].toString();
-//     } catch (e) {
-//       // return e.toString();
-//       retValue = "error";
-//     }
+      retValue = jsonResponse['Error'].toString();
+    } catch (e) {
+      // return e.toString();
+      retValue = "error";
+    }
 
-//     return retValue;
-//   }
+    return retValue;
+  }
 
 // //   Future<String> signUp(String name, String email, String password, String dob,
 // //       String classroom) async {
@@ -138,4 +138,4 @@
 // //     }
 // //     return retValue;
 // //   }
-// // }
+}

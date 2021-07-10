@@ -4,10 +4,12 @@ import '../constants.dart';
 class MyPasswordField extends StatelessWidget {
   const MyPasswordField({
     Key? key,
+    @required this.passwordController,
     @required this.isPasswordVisible,
     @required this.onTap,
   }) : super(key: key);
 
+  final TextEditingController? passwordController;
   final bool? isPasswordVisible;
   final Function? onTap;
 
@@ -16,6 +18,7 @@ class MyPasswordField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: TextField(
+        controller: passwordController,
         style: kBodyText.copyWith(
           color: Colors.white,
         ),

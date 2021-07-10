@@ -67,14 +67,17 @@ class _RegisterPageState extends State<RegisterPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            SizedBox(
+                              height: 50,
+                            ),
                             Text(
                               "Register",
                               style: kHeadline,
                             ),
-                            Text(
-                              "Create new account to get started.",
-                              style: kBodyText2,
-                            ),
+                            // Text(
+                            //   "Create new account to get started.",
+                            //   style: kBodyText2,
+                            // ),
                             SizedBox(
                               height: 50,
                             ),
