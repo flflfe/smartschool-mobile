@@ -109,8 +109,8 @@ class _RecordingsPageState extends State<RecordingsPage>
                                   //                 snapshot.data[index])));
                                 },
                                 child: Container(
-                                  padding: EdgeInsets.all(5),
-                                  height: 50,
+                                  padding: EdgeInsets.symmetric(horizontal: 15),
+                                  height: 80,
                                   decoration: BoxDecoration(
                                     boxShadow: [
                                       BoxShadow(
@@ -126,38 +126,35 @@ class _RecordingsPageState extends State<RecordingsPage>
                                     color: Color(0xffF5F5DC),
                                     borderRadius: BorderRadius.circular(16),
                                   ),
-                                  child: Center(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: <Widget>[
-                                        Text(
-                                          snapshot.data!.recordings[index]
-                                                  .title ??
-                                              "Hello",
-                                          // "",
-                                          style: TextStyle(
-                                              fontSize: 15,
-                                              color: Color(0xFF0D1333),
-                                              fontWeight: FontWeight.normal),
-                                          overflow: TextOverflow.clip,
-                                          maxLines: 1,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Text(
+                                        snapshot.data!.recordings[index]
+                                                .title ??
+                                            "Hello",
+                                        // "",
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            color: Color(0xFF0D1333),
+                                            fontWeight: FontWeight.normal),
+                                        overflow: TextOverflow.clip,
+                                        maxLines: 1,
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        '${snapshot.data!.recordings[index].author.name}',
+                                        style: TextStyle(
+                                          color:
+                                              Color(0xFF0D1333).withOpacity(.5),
                                         ),
-                                        // SizedBox(
-                                        //   height: 10,
-                                        // ),
-                                        // Text(
-                                        //   // 'Credits : ${snapshot.data[index].credits}',
-                                        //   "",
-                                        //   style: TextStyle(
-                                        //     color: Color(0xFF0D1333)
-                                        //         .withOpacity(.5),
-                                        //   ),
-                                        // )
-                                      ],
-                                    ),
+                                      )
+                                    ],
                                   ),
                                 ),
                               ),
@@ -168,7 +165,7 @@ class _RecordingsPageState extends State<RecordingsPage>
                         StaggeredGridView.countBuilder(
                           padding: EdgeInsets.all(15),
                           crossAxisCount: 1,
-                          itemCount: snapshot.data!.recordings.length,
+                          itemCount: snapshot.data!.resourceFiles.length,
                           crossAxisSpacing: 10,
                           mainAxisSpacing: 15,
                           itemBuilder: (context, index) {
@@ -184,8 +181,8 @@ class _RecordingsPageState extends State<RecordingsPage>
                                   //                 snapshot.data[index])));
                                 },
                                 child: Container(
-                                  padding: EdgeInsets.all(5),
-                                  height: 50,
+                                  padding: EdgeInsets.symmetric(horizontal: 15),
+                                  height: 80,
                                   decoration: BoxDecoration(
                                     boxShadow: [
                                       BoxShadow(
@@ -201,38 +198,34 @@ class _RecordingsPageState extends State<RecordingsPage>
                                     color: Color(0xffF5F5DC),
                                     borderRadius: BorderRadius.circular(16),
                                   ),
-                                  child: Center(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: <Widget>[
-                                        Text(
-                                          snapshot.data!.recordings[index]
-                                                  .title ??
-                                              "Hello",
-                                          // "",
-                                          style: TextStyle(
-                                              fontSize: 15,
-                                              color: Color(0xFF0D1333),
-                                              fontWeight: FontWeight.normal),
-                                          overflow: TextOverflow.clip,
-                                          maxLines: 1,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Text(
+                                        snapshot.data!.resourceFiles[index]
+                                                .name ??
+                                            "Hello",
+                                        // "",
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            color: Color(0xFF0D1333),
+                                            fontWeight: FontWeight.normal),
+                                        overflow: TextOverflow.clip,
+                                        maxLines: 1,
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        '${snapshot.data!.resourceFiles[index].author.name}',
+                                        style: TextStyle(
+                                          color:
+                                              Color(0xFF0D1333).withOpacity(.5),
                                         ),
-                                        // SizedBox(
-                                        //   height: 10,
-                                        // ),
-                                        // Text(
-                                        //   // 'Credits : ${snapshot.data[index].credits}',
-                                        //   "",
-                                        //   style: TextStyle(
-                                        //     color: Color(0xFF0D1333)
-                                        //         .withOpacity(.5),
-                                        //   ),
-                                        // )
-                                      ],
-                                    ),
+                                      )
+                                    ],
                                   ),
                                 ),
                               ),

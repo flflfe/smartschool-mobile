@@ -82,8 +82,9 @@ class _ChaptersState extends State<Chapters> {
                                                                 .id)));
                                       },
                                       child: Container(
-                                        padding: EdgeInsets.all(5),
-                                        height: 50,
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 15),
+                                        height: 80,
                                         decoration: BoxDecoration(
                                           boxShadow: [
                                             BoxShadow(
@@ -100,38 +101,36 @@ class _ChaptersState extends State<Chapters> {
                                           borderRadius:
                                               BorderRadius.circular(16),
                                         ),
-                                        child: Center(
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: <Widget>[
-                                              Text(
-                                                snapshot.data![index].name ??
-                                                    "Hello",
-                                                // "",
-                                                style: TextStyle(
-                                                    fontSize: 15,
-                                                    color: Color(0xFF0D1333),
-                                                    fontWeight:
-                                                        FontWeight.normal),
-                                                overflow: TextOverflow.clip,
-                                                maxLines: 1,
-                                              ),
-                                              // SizedBox(
-                                              //   height: 10,
-                                              // ),
-                                              // Text(
-                                              //   // 'Credits : ${snapshot.data[index].credits}',
-                                              //   "",
-                                              //   style: TextStyle(
-                                              //     color: Color(0xFF0D1333)
-                                              //         .withOpacity(.5),
-                                              //   ),
-                                              // )
-                                            ],
-                                          ),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: <Widget>[
+                                            Text(
+                                              snapshot.data![index].name ??
+                                                  "Hello",
+                                              // "",
+                                              style: TextStyle(
+                                                  fontSize: 15,
+                                                  color: Color(0xFF0D1333),
+                                                  fontWeight:
+                                                      FontWeight.normal),
+                                              overflow: TextOverflow.clip,
+                                              maxLines: 1,
+                                            ),
+                                            // SizedBox(
+                                            //   height: 10,
+                                            // ),
+                                            // Text(
+                                            //   // 'Credits : ${snapshot.data[index].credits}',
+                                            //   "",
+                                            //   style: TextStyle(
+                                            //     color: Color(0xFF0D1333)
+                                            //         .withOpacity(.5),
+                                            //   ),
+                                            // )
+                                          ],
                                         ),
                                       ),
                                     ),
