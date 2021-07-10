@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:smartschool_mobile/screens/videoPage.dart';
 import 'package:smartschool_mobile/services/services.dart';
 
 import '../constants.dart';
@@ -73,7 +74,7 @@ class _RecordingsPageState extends State<RecordingsPage>
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.1,
+              height: MediaQuery.of(context).size.height * 0.05,
               // height: 10,
             ),
             // Text(
@@ -101,12 +102,13 @@ class _RecordingsPageState extends State<RecordingsPage>
                               padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
                               child: InkWell(
                                 onTap: () {
-                                  // Navigator.push(
-                                  //     context,
-                                  //     MaterialPageRoute(
-                                  //         builder: (BuildContext context) =>
-                                  //             DetailsScreen(
-                                  //                 snapshot.data[index])));
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) =>
+                                              VideoPage(
+                                                  id: snapshot.data!
+                                                      .recordings[index].id)));
                                 },
                                 child: Container(
                                   padding: EdgeInsets.symmetric(horizontal: 15),

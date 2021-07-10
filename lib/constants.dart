@@ -41,3 +41,5 @@ const String signupUrl = '$finalUrl/signup';
 const String subjectsUrl = '$finalUrl/subjects';
 //Chapters
 const String chaptersUrl = '$finalUrl/chapters';
+//recording
+const String recordingUrl = '$finalUrl/recordings';

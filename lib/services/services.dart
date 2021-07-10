@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:smartschool_mobile/models/chapterDetails.dart';
 import 'package:smartschool_mobile/models/chapters.dart';
+import 'package:smartschool_mobile/models/recording.dart';
 import 'package:smartschool_mobile/models/studentSubjects.dart';
 import 'package:smartschool_mobile/constants.dart';
 import 'package:http/http.dart' as http;
@@ -57,6 +58,24 @@ class Services extends ChangeNotifier {
             chapterDetailsFromJson(response.body.toString());
 
         return chapterDetails;
+      } else {
+        return null;
+      }
+    } catch (e) {
+      return null;
+    }
+  }
+
+  static Future<dynamic> getRecordingDetails(String? id) async {
+    try {
+      final response = await http.get(Uri.parse('$recordingUrl/$id'),
+          headers: {'Authorization': 'Bearer $token'});
+      print(response.body);
+      if (response.statusCode == 200) {
+        final RecordingModel recordingDetails =
+            recordingModelFromJson(response.body.toString());
+
+        return recordingDetails;
       } else {
         return null;
       }
