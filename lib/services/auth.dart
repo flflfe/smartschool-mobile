@@ -85,16 +85,15 @@ class Auth extends ChangeNotifier {
         _token = jsonResponse['token'];
         _name = jsonResponse['user']['Name'];
         _email = jsonResponse['user']['Email'];
-        // bool _isTeacherFromJson =
-        //     jsonResponse['user']['role'] == 'teacher' ? true : false;
-        // if (_isTeacherFromJson != _isTeacher) {
-        //   return _isTeacherFromJson
-        //       ? 'Login with Student Account or go to Teacher Login!'
-        //       : 'Login with Teacher Account or go to Student Login!';
-        // }
+        _isTeacher = jsonResponse['user']['role'] == 'role.teacher'
+            ? true
+            : jsonResponse['user']['role'] == 'role.student'
+                ? false
+                : null;
+
         sharedPreferences.setString("token", _token!);
         sharedPreferences.setString("user", _name!);
-        sharedPreferences.setString('role', jsonResponse['user']['role']);
+        sharedPreferences.setBool('isTeacher', _isTeacher!);
 
         print('----------Printing From Shared Preferences----------');
         print('User:\n');
