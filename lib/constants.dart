@@ -39,3 +39,5 @@ const String signupUrl = '$finalUrl/signup';
 
 //Subjects
 const String subjectsUrl = '$finalUrl/subjects';
+//Chapters
+const String chaptersUrl = '$finalUrl/chapters';

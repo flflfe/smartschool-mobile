@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:smartschool_mobile/screens/recordingList.dart';
 import 'package:smartschool_mobile/services/services.dart';
-import 'package:smartschool_mobile/models/chapters.dart' as chapterModel;
 
 import '../constants.dart';
 
-class Chapters extends StatefulWidget {
-  Chapters({Key? key, this.id}) : super(key: key);
+class RecordingsPage extends StatefulWidget {
+  const RecordingsPage({Key? key, this.id}) : super(key: key);
   final String? id;
 
   @override
-  _ChaptersState createState() => _ChaptersState();
+  _RecordingsPageState createState() => _RecordingsPageState();
 }
 
-class _ChaptersState extends State<Chapters> {
-  List<chapterModel.Chapters>? chapters;
-
-  Future<List<chapterModel.Chapters>> getChapters(String? id) async {
-    chapters = await Services.getChapters(id);
-    return chapters!;
+class _RecordingsPageState extends State<RecordingsPage> {
+  Future<dynamic> getChapterDetails(String? id) async {
+    final chapterDetails = await Services.getChapterDetails(id);
+    return chapterDetails!;
   }
 
   @override
@@ -47,22 +43,21 @@ class _ChaptersState extends State<Chapters> {
                   height: MediaQuery.of(context).size.height * 0.1,
                 ),
                 Text(
-                  "Chapters",
+                  "Recordings",
                   style: kHeadline,
                 ),
                 SizedBox(
                   height: 20,
                 ),
                 FutureBuilder(
-                  initialData: [],
-                  future: getChapters(widget.id),
-                  builder: (context, AsyncSnapshot<List<dynamic>> snapshot) =>
+                  future: getChapterDetails(widget.id),
+                  builder: (context, AsyncSnapshot<dynamic> snapshot) =>
                       snapshot.hasData
                           ? Expanded(
                               child: StaggeredGridView.countBuilder(
                                 padding: EdgeInsets.all(20),
                                 crossAxisCount: 1,
-                                itemCount: snapshot.data!.length,
+                                itemCount: snapshot.data!.recordings.length,
                                 crossAxisSpacing: 10,
                                 mainAxisSpacing: 15,
                                 itemBuilder: (context, index) {
@@ -71,15 +66,12 @@ class _ChaptersState extends State<Chapters> {
                                         const EdgeInsets.fromLTRB(15, 5, 15, 5),
                                     child: InkWell(
                                       onTap: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder:
-                                                    (BuildContext context) =>
-                                                        RecordingsPage(
-                                                            id: snapshot
-                                                                .data![index]
-                                                                .id)));
+                                        // Navigator.push(
+                                        //     context,
+                                        //     MaterialPageRoute(
+                                        //         builder: (BuildContext context) =>
+                                        //             DetailsScreen(
+                                        //                 snapshot.data[index])));
                                       },
                                       child: Container(
                                         padding: EdgeInsets.all(5),
@@ -108,7 +100,8 @@ class _ChaptersState extends State<Chapters> {
                                                 MainAxisAlignment.center,
                                             children: <Widget>[
                                               Text(
-                                                snapshot.data![index].name ??
+                                                snapshot.data!.recordings[index]
+                                                        .title ??
                                                     "Hello",
                                                 // "",
                                                 style: TextStyle(

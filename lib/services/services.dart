@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:smartschool_mobile/models/chapterDetails.dart';
 import 'package:smartschool_mobile/models/chapters.dart';
 import 'package:smartschool_mobile/models/studentSubjects.dart';
 import 'package:smartschool_mobile/constants.dart';
@@ -43,6 +44,24 @@ class Services extends ChangeNotifier {
       }
     } catch (e) {
       return List<Chapters>.empty();
+    }
+  }
+
+  static Future<dynamic> getChapterDetails(String? id) async {
+    try {
+      final response = await http.get(Uri.parse('$chaptersUrl/$id'),
+          headers: {'Authorization': 'Bearer $token'});
+      print(response.body);
+      if (response.statusCode == 200) {
+        final ChapterDetails chapterDetails =
+            chapterDetailsFromJson(response.body.toString());
+
+        return chapterDetails;
+      } else {
+        return null;
+      }
+    } catch (e) {
+      return null;
     }
   }
 }
