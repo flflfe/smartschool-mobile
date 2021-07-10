@@ -56,7 +56,7 @@ class WelcomePage extends StatelessWidget {
                           children: [
                             MyTextButton(
                               bgColor: Colors.white,
-                              buttonName: 'Register',
+                              buttonName: 'Student',
                               onTap: () {
                                 Navigator.push(
                                     context,
@@ -70,7 +70,7 @@ class WelcomePage extends StatelessWidget {
                             ),
                             MyTextButton(
                               bgColor: Colors.white,
-                              buttonName: 'Login',
+                              buttonName: 'Teacher',
                               onTap: () {
                                 Navigator.push(
                                     context,
