@@ -22,7 +22,7 @@ class MyPasswordField extends StatelessWidget {
         style: kBodyText.copyWith(
           color: Colors.white,
         ),
-        // obscureText: isPasswordVisible,
+        obscureText: isPasswordVisible!,
         keyboardType: TextInputType.text,
         textInputAction: TextInputAction.done,
         decoration: InputDecoration(
