@@ -36,3 +36,6 @@ const String finalUrl = 'http://192.168.1.66:4000';
 //auth
 const String signinUrl = '$finalUrl/signin';
 const String signupUrl = '$finalUrl/signup';
+
+//Subjects
+const String subjectsUrl = '$finalUrl/subjects';
