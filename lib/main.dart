@@ -28,7 +28,7 @@ class _SmartschoolState extends State<Smartschool> {
       child: MaterialApp(
         theme: ThemeData(
           textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
-          scaffoldBackgroundColor: kBackgroundColor,
+          scaffoldBackgroundColor: Colors.transparent,
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
@@ -37,7 +37,6 @@ class _SmartschoolState extends State<Smartschool> {
           '/dashboard': (context) => DashboardPage(),
           '/login': (context) => SignInPage(),
           '/signup': (context) => RegisterPage(),
-          '/welcome': (context) => WelcomePage(),
           '/root': (context) => Root(),
         },
         // home: Root(),

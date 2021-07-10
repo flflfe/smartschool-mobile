@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smartschool_mobile/models/studentSubjects.dart';
+import 'package:smartschool_mobile/screens/screen.dart';
 import 'package:smartschool_mobile/services/auth.dart';
 import 'package:smartschool_mobile/services/services.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -41,8 +42,15 @@ class _DashboardPageState extends State<DashboardPage> {
         ),
         actions: [
           TextButton(
-              onPressed: () {
-                _auth.signOut();
+              onPressed: () async {
+                String _returnString = await _auth.signOut();
+                print(_returnString);
+                if (_returnString == "success") {
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => Root()),
+                      (route) => false);
+                }
               },
               child: Text('Logout'))
         ],

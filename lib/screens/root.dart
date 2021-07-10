@@ -41,7 +41,7 @@ class _RootState extends State<Root> {
     return _authStatus == AuthStatus.loggedIn
         ? DashboardPage()
         : _authStatus == AuthStatus.notLoggedIn
-            ? WelcomePage()
+            ? SignInPage()
             : Scaffold(
                 body: Center(
                 child: CircularProgressIndicator(

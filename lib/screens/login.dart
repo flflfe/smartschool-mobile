@@ -41,6 +41,10 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
+    bool isTeacher;
+    Auth _auth = Provider.of<Auth>(context, listen: false);
+
+    _auth.getIsTeacher == true ? isTeacher = true : isTeacher = false;
     return _isLoading
         ? Center(
             child: CircularProgressIndicator(
@@ -49,20 +53,20 @@ class _SignInPageState extends State<SignInPage> {
           )
         : Scaffold(
             backgroundColor: Colors.transparent,
-            appBar: AppBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              leading: IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: Image(
-                  width: 24,
-                  color: Colors.white,
-                  image: Svg('assets/images/back_arrow.svg'),
-                ),
-              ),
-            ),
+            // appBar: AppBar(
+            //   backgroundColor: Colors.transparent,
+            //   elevation: 0,
+            //   leading: IconButton(
+            //     onPressed: () {
+            //       Navigator.pop(context);
+            //     },
+            //     icon: Image(
+            //       width: 24,
+            //       color: Colors.white,
+            //       image: Svg('assets/images/back_arrow.svg'),
+            //     ),
+            //   ),
+            // ),
             body: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
@@ -88,19 +92,32 @@ class _SignInPageState extends State<SignInPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SizedBox(
-                                    height: 50,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.1,
                                   ),
                                   Text(
-                                    "Login",
+                                    "Codekavya SmartSchool",
                                     style: kHeadline,
+                                    textAlign: TextAlign.center,
                                   ),
-
-                                  // Text(
-                                  //   "Login",
-                                  //   style: kBodyText2,
-                                  // ),
                                   SizedBox(
-                                    height: 60,
+                                    height: 10,
+                                  ),
+                                  Container(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.8,
+                                    child: Text(
+                                      "A Hackathon Project.",
+                                      style: kBodyText,
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.1,
+                                  ),
+                                  SizedBox(
+                                    height: 10,
                                   ),
                                   MyTextField(
                                     textFieldController: _emailController,
@@ -123,32 +140,16 @@ class _SignInPageState extends State<SignInPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "Dont't have an account? ",
+                                  " ",
                                   style: kBodyText,
                                 ),
-                                GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      CupertinoPageRoute(
-                                        builder: (context) => RegisterPage(),
-                                      ),
-                                    );
-                                  },
-                                  child: Text(
-                                    'Register',
-                                    style: kBodyText.copyWith(
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                )
                               ],
                             ),
                             SizedBox(
                               height: 20,
                             ),
                             MyTextButton(
-                              buttonName: 'Sign In',
+                              buttonName: 'Login',
                               onTap: () async {
                                 setState(() {
                                   _isLoading = true;
@@ -161,6 +162,9 @@ class _SignInPageState extends State<SignInPage> {
                               },
                               bgColor: Colors.white,
                               textColor: Colors.black87,
+                            ),
+                            SizedBox(
+                              height: 50,
                             ),
                           ],
                         ),
