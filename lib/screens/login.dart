@@ -41,10 +41,6 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
-    bool isTeacher;
-    Auth _auth = Provider.of<Auth>(context, listen: false);
-
-    _auth.getIsTeacher == true ? isTeacher = true : isTeacher = false;
     return _isLoading
         ? Center(
             child: CircularProgressIndicator(

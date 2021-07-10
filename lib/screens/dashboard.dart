@@ -30,7 +30,7 @@ class _DashboardPageState extends State<DashboardPage> {
     // Services.classRoom = _auth.getClassRoom;
     Services.token = _auth.getToken;
     Services.name = _auth.getName;
-    // Services.isTeacher = _auth.isTeacher;
+    Services.isTeacher = _auth.getIsTeacher;
     return Scaffold(
       // drawer: Drawer(),
       backgroundColor: Colors.transparent,

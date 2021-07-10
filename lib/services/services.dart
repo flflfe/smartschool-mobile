@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:smartschool_mobile/models/studentSubjects.dart';
 import 'package:smartschool_mobile/constants.dart';
-import 'package:http/http.dart'as http;
+import 'package:http/http.dart' as http;
 
 class Services extends ChangeNotifier {
-   static String? name;
+  static String? name;
   // static String classRoom;
   static String? token;
-  // static bool isTeacher;
+  static bool? isTeacher;
 
   static Future<List<StudentSubjects>> getStudentSubjectss() async {
     try {
@@ -26,8 +26,4 @@ class Services extends ChangeNotifier {
       return List<StudentSubjects>.empty();
     }
   }
-
-
-
-
 }
