@@ -6,9 +6,9 @@ import 'package:smartschool_mobile/services/auth.dart';
 import 'package:smartschool_mobile/services/services.dart';
 import 'package:smartschool_mobile/screens/login.dart';
 import 'package:smartschool_mobile/screens/signup.dart';
+import 'package:smartschool_mobile/screens/root.dart';
 import 'constants.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'root.dart';
 
 main() => runApp(Smartschool());
 
@@ -38,9 +38,11 @@ class _SmartschoolState extends State<Smartschool> {
           '/login': (context) => SignInPage(),
           '/signup': (context) => RegisterPage(),
           '/welcome': (context) => WelcomePage(),
+          '/root': (context) => Root(),
         },
         // home: Root(),
-        home: WelcomePage(),
+        home: Root(),
+        // home: WelcomePage(),
       ),
     );
   }

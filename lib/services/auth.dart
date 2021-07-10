@@ -19,24 +19,24 @@ class Auth extends ChangeNotifier {
     this._isTeacher = b;
   }
 
-//   Future<String> onStartUp() async {
-//     String retVal = "error";
-//     try {
-//       SharedPreferences sharedPreferences =
-//           await SharedPreferences.getInstance();
-//       if (sharedPreferences.getString('user') != null) {
-//         _name = sharedPreferences.getString('user');
-//         _token = sharedPreferences.getString('token');
-//         _isTeacher =
-//             sharedPreferences.getString('role') == 'teacher' ? true : false;
-//         retVal = "success";
-//       }
-//     } catch (e) {
-//       print(e);
-//     }
+  Future<String> onStartUp() async {
+    String retVal = "error";
+    try {
+      SharedPreferences sharedPreferences =
+          await SharedPreferences.getInstance();
+      if (sharedPreferences.getString('user') != null) {
+        _name = sharedPreferences.getString('user');
+        _token = sharedPreferences.getString('token');
+        // _isTeacher =
+        //     sharedPreferences.getString('role') == 'teacher' ? true : false;
+        retVal = "success";
+      }
+    } catch (e) {
+      print(e);
+    }
 
-//     return (retVal);
-//   }
+    return (retVal);
+  }
 
 //   Future<String> signOut() async {
 //     String retVal = "error";
@@ -66,7 +66,7 @@ class Auth extends ChangeNotifier {
       Map body = {"Email": email, "Password": pass};
       var jsonResponse;
       var res = await client.post(uri, body: body);
-      print(res.body);
+      // print(res.body);
       jsonResponse = json.decode(res.body);
 
       //Check API status
@@ -95,6 +95,10 @@ class Auth extends ChangeNotifier {
         sharedPreferences.setString("token", _token!);
         sharedPreferences.setString("user", _name!);
         sharedPreferences.setString('role', jsonResponse['user']['role']);
+
+        print('----------Printing From Shared Preferences----------');
+        print('User:\n');
+        print(sharedPreferences.getString('user'));
         return "success";
       }
 
