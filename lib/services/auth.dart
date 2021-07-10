@@ -38,22 +38,22 @@ class Auth extends ChangeNotifier {
     return (retVal);
   }
 
-//   Future<String> signOut() async {
-//     String retVal = "error";
-//     try {
-//       SharedPreferences sharedPreferences =
-//           await SharedPreferences.getInstance();
-//       await sharedPreferences.clear();
+  Future<String> signOut() async {
+    String retVal = "error";
+    try {
+      SharedPreferences sharedPreferences =
+          await SharedPreferences.getInstance();
+      await sharedPreferences.clear();
 
-//       _name = null;
-//       _token = null;
-//       retVal = "success";
-//     } catch (e) {
-//       print(e);
-//     }
+      _name = null;
+      _token = null;
+      retVal = "success";
+    } catch (e) {
+      print(e);
+    }
 
-//     return (retVal);
-//   }
+    return (retVal);
+  }
 
   Future<String> signIn(String email, String pass) async {
     String retValue = "error";
