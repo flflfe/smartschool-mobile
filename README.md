@@ -6,8 +6,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/codekavya/smartschool-backend">
-    <img src="images/logo.png" alt="Logo" width="120" height="120">
+  <a href="https://github.com/codekavya/smartschool-mobile">
+    <img src="assets/images/logo.png" alt="Logo" width="120" height="120">
   </a>
 
   <h3 align="center">Smart School Backend</h3>
@@ -20,9 +20,9 @@
     <br />
     <a href="https://codekavya.com">Contact Us</a>
     ·
-    <a href="https://github.com/codekavya/smartschool-backend/issues">Report Bug</a>
+    <a href="https://github.com/codekavya/smartschool-mobile/issues">Report Bug</a>
     ·
-    <a href="https://github.com/codekavya/smartschool-backend/issues">Request Feature</a>
+    <a href="https://github.com/codekavya/smartschool-mobile/issues">Request Feature</a>
   </p>
 </p>
 
@@ -48,18 +48,18 @@
 </details>
 
 # About the project
-![](images/screenshot.png)
+![](assets/images/screenshot1.png)
 
 A natural language processing-powered cross-platform service for students of the future.
 
 These repository is accompanied by the following repositories.
-# Frontend
+# Peer Repositories
 
 <a href="https://github.com/codekavya/smartschool-frontend">
   <!-- Change the `github-readme-stats.anuraghazra1.vercel.app` to `github-readme-stats.vercel.app`  -->
   <img align="center" src="https://github-readme-stats.anuraghazra1.vercel.app/api/pin/?username=codekavya&repo=smartschool-frontend&theme=material-palenight" />
 </a>    
-<a href="https://github.com/codekavya/smartschool-mobile">
+<a href="https://github.com/codekavya/smartschool-backend">
   <!-- Change the `github-readme-stats.anuraghazra1.vercel.app` to `github-readme-stats.vercel.app`  -->
   <img align="center" src="https://github-readme-stats.anuraghazra1.vercel.app/api/pin/?username=codekavya&repo=smartschool-backend&theme=material-palenight" />
 </a>
@@ -79,7 +79,7 @@ This is the list of technologies that we are using for the backend of the projec
 
 
 # Structure
-![](images/flow.png)
+![](assets/images/flow.png)
 
 
 # Getting Started
@@ -100,7 +100,8 @@ cd smartschool-mobile
 ```bash
 pub get
 ```
-**Run the project **
+
+**Run the project**
 ```bash
 flutter run
 ```
