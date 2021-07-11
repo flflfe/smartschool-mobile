@@ -21,9 +21,10 @@ class _VideoPlayerState extends State<VideoPlayer> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    videoPlayerController = VideoPlayerController.network(
-        'https://codekavya.blob.core.windows.net/videos/004023959359810814-Food%20-%20Talking%20about%20Food%20-%20Beginner%20English%20-%20A%20Conversation%20about%20Food.mp4');
+    print('\n-------video URL---------\n');
+    print(widget.videoUrl);
 
+    videoPlayerController = VideoPlayerController.network(widget.videoUrl!);
     _chewieController = ChewieController(
         videoPlayerController: videoPlayerController!,
         aspectRatio: 16 / 9,
