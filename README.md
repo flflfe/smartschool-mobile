@@ -50,14 +50,14 @@
 # About the project
 
 <p float="left">
-  <img src="assets/images/screenshot1.jpg" width="100" />
-  <img src="assets/images/screenshot2.jpg" width="100" />
-  <img src="assets/images/screenshot3.jpg" width="100" />
+  <img src="assets/images/screenshot1.jpg" width="200" />
+  <img src="assets/images/screenshot2.jpg" width="200" />
+  <img src="assets/images/screenshot3.jpg" width="200" />
 </p>
 <p float="left">
-  <img src="assets/images/screenshot5.jpg" width="100" />
-  <img src="assets/images/screenshot5.jpg" width="100" />
-  <img src="assets/images/screenshot6.jpg" width="100" />
+  <img src="assets/images/screenshot5.jpg" width="200" />
+  <img src="assets/images/screenshot5.jpg" width="200" />
+  <img src="assets/images/screenshot6.jpg" width="200" />
 </p>
 
 
@@ -78,7 +78,9 @@ These repository is accompanied by the following repositories.
 ## Built With
 
 * [Flutter](https://flutter.dev/)
-This is the list of technologies that we are using for the backend of the project. 
+
+This is the list of technologies that we are using for the backend of the project.
+
 * [Node js](https://nodejs.org/en/)
 * [Express](http://expressjs.com/)
 * [MongoDb](https://www.mongodb.com/)
