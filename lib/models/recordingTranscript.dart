@@ -52,18 +52,13 @@ class From {
   });
 
   String? id;
-  Name? name;
+  String? name;
 
   factory From.fromJson(Map<String, dynamic> json) => From(
         id: json["id"],
-        name: nameValues.map![json["name"]],
+        name: json["name"],
       );
 }
-
-enum Name { SPEAKER_2, SPEAKER_1 }
-
-final nameValues =
-    EnumValues({"Speaker 1": Name.SPEAKER_1, "Speaker 2": Name.SPEAKER_2});
 
 class Phrase {
   Phrase({
