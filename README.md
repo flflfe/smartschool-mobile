@@ -48,7 +48,11 @@
 </details>
 
 # About the project
-![](assets/images/screenshot1.png)
+![](assets/images/screenshot1.jpg) ![](assets/images/screenshot2.jpg)
+![](assets/images/screenshot3.jpg) ![](assets/images/screenshot4.jpg)
+![](assets/images/screenshot5.jpg) ![](assets/images/screenshot6.jpg)
+![](assets/images/screenshot7.jpg)
+
 
 A natural language processing-powered cross-platform service for students of the future.
 
