@@ -62,29 +62,29 @@ class _RegisterPageState extends State<RegisterPage> {
                             //   "Create new account to get started.",
                             //   style: kBodyText2,
                             // ),
-                            SizedBox(
-                              height: 50,
-                            ),
-                            MyTextField(
-                              hintText: 'Name',
-                              inputType: TextInputType.name,
-                            ),
-                            MyTextField(
-                              hintText: 'Email',
-                              inputType: TextInputType.emailAddress,
-                            ),
-                            MyTextField(
-                              hintText: 'Phone',
-                              inputType: TextInputType.phone,
-                            ),
-                            MyPasswordField(
-                              isPasswordVisible: passwordVisibility,
-                              onTap: () {
-                                setState(() {
-                                  passwordVisibility = !passwordVisibility;
-                                });
-                              },
-                            )
+                            // SizedBox(
+                            //   height: 50,
+                            // ),
+                            // MyTextField(
+                            //   hintText: 'Name',
+                            //   inputType: TextInputType.name,
+                            // ),
+                            // MyTextField(
+                            //   hintText: 'Email',
+                            //   inputType: TextInputType.emailAddress,
+                            // ),
+                            // MyTextField(
+                            //   hintText: 'Phone',
+                            //   inputType: TextInputType.phone,
+                            // ),
+                            // MyPasswordField(
+                            //   isPasswordVisible: passwordVisibility,
+                            //   onTap: () {
+                            //     setState(() {
+                            //       passwordVisibility = !passwordVisibility;
+                            //     });
+                            //   },
+                            // )
                           ],
                         ),
                       ),
