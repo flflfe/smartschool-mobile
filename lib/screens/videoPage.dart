@@ -31,6 +31,7 @@ class _VideoPageState extends State<VideoPage> {
             builder: (context, AsyncSnapshot<dynamic> snapshot) =>
                 snapshot.hasData
                     ? screens.VideoPlayer(
+                        recordingUrl: '${snapshot.data.id}',
                         videoUrl: '${snapshot.data.recordingUrl}',
                         looping: false,
                       )
