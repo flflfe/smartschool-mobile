@@ -10,7 +10,7 @@
     <img src="assets/images/logo.png" alt="Logo" width="120" height="120">
   </a>
 
-  <h3 align="center">Smart School Backend</h3>
+  <h3 align="center">Smart School Mobile</h3>
 
   <p align="center">
     A natural language processing-powered cross-platform service for students of the future.
