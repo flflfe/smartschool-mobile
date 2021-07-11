@@ -48,10 +48,17 @@
 </details>
 
 # About the project
-![](assets/images/screenshot1.jpg) ![](assets/images/screenshot2.jpg)
-![](assets/images/screenshot3.jpg) ![](assets/images/screenshot4.jpg)
-![](assets/images/screenshot5.jpg) ![](assets/images/screenshot6.jpg)
-![](assets/images/screenshot7.jpg)
+
+<p float="left">
+  <img src="assets/images/screenshot1.jpg" width="100" />
+  <img src="assets/images/screenshot2.jpg" width="100" />
+  <img src="assets/images/screenshot3.jpg" width="100" />
+</p>
+<p float="left">
+  <img src="assets/images/screenshot5.jpg" width="100" />
+  <img src="assets/images/screenshot5.jpg" width="100" />
+  <img src="assets/images/screenshot6.jpg" width="100" />
+</p>
 
 
 A natural language processing-powered cross-platform service for students of the future.
