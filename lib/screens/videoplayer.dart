@@ -116,22 +116,23 @@ class _VideoPlayerState extends State<VideoPlayer> {
                                       // "",
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
-                                          fontSize: 15,
+                                          fontSize: 14,
                                           color: Colors.white,
                                           fontWeight: FontWeight.normal),
                                       overflow: TextOverflow.clip,
                                       maxLines: 1,
                                     ),
                                     SizedBox(
-                                      height: 10,
+                                      height: 0,
                                     ),
-                                    // Text(
-                                    //   '${snapshot.data!.recordings[index].author.name}',
-                                    //   style: TextStyle(
-                                    //     color:
-                                    //         Color(0xFF0D1333).withOpacity(.5),
-                                    //   ),
-                                    // )
+                                    Text(
+                                      '${snapshot.data![index].from.name}',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          color:
+                                              // Color(0xFF0D1333).withOpacity(.5),
+                                              Colors.grey),
+                                    )
                                   ],
                                 ),
                               ),
